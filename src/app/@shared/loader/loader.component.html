@@ -1,0 +1,8 @@
+<div class="ion-text-center">
+  <ion-spinner *ngIf="loadable.loading"></ion-spinner> <span>{{ message }}</span>
+  <div *ngIf="loadable.error">{{loadable?.error?.message || 'Something went wrong'}}</div>
+</div>
+
+<ng-container *ngIf="loadable.success">
+  <ng-content></ng-content>
+</ng-container>

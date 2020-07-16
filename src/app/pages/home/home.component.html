@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar mode="md">
+    <ion-title><span translate>POKEMON DECK</span></ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content mode="md">
+  <div class="main-wrapper">
+    <div class="slides">
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of banner">
+          <img [src]="item.image" />
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="list-item">
+      <ul>
+        <li>
+          <a routerLink="/list-item">Pokemon</a>
+        </li>
+        <li>
+          <a>Ability</a>
+        </li>
+        <li>
+          <a>Tipe</a>
+        </li>
+        <li>
+          <a>Item</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

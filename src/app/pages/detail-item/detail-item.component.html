@@ -1,0 +1,64 @@
+<ion-content mode="md" class="list-product" (ionScroll)="onScroll($event)" [scrollEvents]="true">
+  <ion-toolbar mode="md" slot="fixed" class="{{ setColor ? 'ion-background' : 'ion-transparent' }}">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list-item"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+            <ion-icon class="favorite" name="heart"></ion-icon>
+        </ion-buttons> -->
+  </ion-toolbar>
+
+  <app-loader [loadable]="detail$ | async"></app-loader>
+
+  <div class="card info-detail" *ngFor="let item of (detail$ | async).data">
+    <div class="cover">
+      <img src="{{item.imageUrl}}">
+    </div>
+    <div class="detail">
+      <div class="content">
+        <div class="item">
+          Name: <span>{{item.name}}</span>
+        </div>
+        <div class="item">
+          Type: <span>{{item.types}}</span>
+        </div>
+        <div class="item">
+          Evolved: <span>{{item.evolvesFrom}}</span>
+        </div>
+        <div class="item">
+          HP: <span>{{item.hp}}</span>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="content">
+        <div class="item">
+          Super Type: <span>{{item.supertype}}</span>
+        </div>
+        <div class="item">
+          Sub Type: <span>{{item.subtype}}</span>
+        </div>
+        <div class="item">
+          Rarity: <span>{{item.rarity}}</span>
+        </div>
+        <div class="item">
+          Series: <span>{{item.series}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="12" size="12" class="ion-text-center">
+        <ion-button expand="full">
+          <ion-icon slot="icon-only" name="heart-outline"></ion-icon> 
+           &nbsp; Favorite
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

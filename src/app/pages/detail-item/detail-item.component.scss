@@ -1,0 +1,54 @@
+ion-toolbar {
+  padding-top: 7px !important;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+hr {
+  border-top: 1px solid #dddddd;
+  margin: 2px 0 20px 0;
+}
+
+ion-toolbar {
+  &.ion-background {
+    --background: #ffffff;
+    background: #ffffff;
+    transition: all ease-out 0.35s;
+    box-shadow: 0 0 11px #dddddd;
+    padding-top: 0 !important;
+    padding-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &.ion-transparent {
+    --background: transparent;
+    background: transparent;
+    transition: all ease-in 0.3s;
+  }
+}
+
+.favorite {
+  color: red;
+  font-size: 1.6em;
+  padding: 15px;
+  position: absolute;
+  z-index: 99;
+  right: 0;
+}
+
+div[scrollY="true"] {
+  background: #000;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-item {
+    flex: 0 0 auto;
+  }
+}

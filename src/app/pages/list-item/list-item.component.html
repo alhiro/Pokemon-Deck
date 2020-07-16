@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons class="list-search">
+      <ion-searchbar [value]="input" (search)="search($event.target.value)" placeholder="Search pokemon..."></ion-searchbar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="md" class="ion-padding-horizontal list-item">
+  <hr />
+  <ion-text>List Card Pokemon</ion-text>
+
+  <app-loader [loadable]="list$ | async"></app-loader>  
+
+  <div class="card list-detail" *ngFor="let item of (list$ | async).data; let i = index" [routerLink]="['/detail-item', item.id]">
+    <div class="cover">
+      <img src="{{item.imageUrl}}">
+    </div>
+    <div class="detail">
+      <div class="content">
+        <div class="item">
+          Name: <span>{{ item.name }}</span>
+        </div>
+        <div class="item">
+          Type: <span>{{ item.types }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" size="6" class="ion-text-center">
+        <ion-button expand="full" fill="transparent" class="ion-text-wrap min-max-width no-ripple">
+          <ion-icon slot="icon-only" name="funnel-outline"></ion-icon>
+          Filter
+        </ion-button>
+      </ion-col>
+
+      <ion-col size-sm="6" size="6" class="ion-text-center">
+        <ion-button expand="full" fill="transparent" class="ion-text-wrap min-max-width no-ripple">
+          <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+          Sort
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
